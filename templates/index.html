@@ -16,14 +16,18 @@
             <br><br>
         <button type="submit">Analyze Text</button><br><br>
         
-        <input type="checkbox" name="removepunc"> Remove Punctuation
+        <input type="checkbox" class='product' name="removepunc"> Remove Punctuation
         <br>
-        <input type="checkbox" name="firstcaps"> Caps
+        <input type="checkbox" class='product' name="firstcaps"> Caps
         <br>
-        <input type="checkbox" name="newlineremover"> Newlineremover
+        <input type="checkbox" class='product' name="newlineremover"> Newlineremover
         <br>
-        <input type="checkbox" name="spaceremover"> SpaceRemover
-
+        <input type="checkbox" class='product' name="spaceremover"> SpaceRemover
+<script>
+    $('.product').on('change',function(){
+        $('.product').not(this).prop('checked',false);
+    })
+</script>
         
         
     </form>

@@ -23,11 +23,19 @@ def analyzetext(request):
             'purpose' : "Analysed Text : ",
             "b": analyzetext
         }
-      
-
-   
-
         return render(request , 'analyze.html', params)
+    elif(caps=='on'):
+        analyzetext=''
+        for char in text:
+            analyzetext = analyzetext + char.upper()
+        params = {
+            'purpose' : 'Analysed Text :',
+            'b' : analyzetext
+        }
+        return render(request,'analyze.html',params)
+
+    else:
+        return HttpResponse("Error")
 
 def capitalise(request):
     return HttpResponse("capitalise")
