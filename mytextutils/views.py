@@ -4,7 +4,7 @@ import string
 
 # Create your views here.
 def home(request):
-    return render(request , 'index.html')
+    return render(request , 'base.html')
 
 def analyzetext(request):
     text=request.GET.get('textbox','default')
@@ -37,8 +37,7 @@ def analyzetext(request):
     else:
         return HttpResponse("Error")
 
-def capitalise(request):
-    return HttpResponse("capitalise")
+
 
 def newlineremover(request):
     return HttpResponse("newlineremover")
