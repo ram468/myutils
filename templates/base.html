@@ -47,12 +47,14 @@
   </nav>
   <br><br>
 
-    {{y}}
+   
   
 
   <div class="container">
 
     <form action="/analyzetext" method="get">
+      <!-- {% csrf_token %} -->
+  
       <div class="form-group">
         <label>Write the text</label>
         <textarea name='textbox' class="form-control" rows="5"></textarea>

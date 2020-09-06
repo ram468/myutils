@@ -5,15 +5,15 @@ import datetime
 
 # Create your views here.
 def home(request):
-    return render(request , 'base.html')
+    return render(request , 'index.html')
 
 def analyzetext(request):
-    text=request.GET.get('textbox','default')
+    text=request.POST.get('textbox','default')
     charcount = len(text) 
-    ctext=request.GET.get('removepunc','Off')
-    caps=request.GET.get('firstcaps','Off')
-    spaceremove=request.GET.get('spaceremover','Off')
-    newlineremover=request.GET.get('newlineremover','Off')
+    ctext=request.POST.get('removepunc','Off')
+    caps=request.POST.get('firstcaps','Off')
+    spaceremove=request.POST.get('spaceremover','Off')
+    newlineremover=request.POST.get('newlineremover','Off')
     
     #print(ctext)
     if ctext=='on':
@@ -62,7 +62,7 @@ def analyzetext(request):
     elif(newlineremover=='on'):
         analyzetext=''
         for char in text:
-            if char != "\n":
+            if char != "\n" and char != "\r":
                 analyzetext += char
         params = {
             'purpose' : 'Newlines Removed',
